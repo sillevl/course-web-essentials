@@ -1,0 +1,29 @@
+{
+  "name": "course-web-essentials",
+  "version": "1.0.0",
+  "description": "Course materials for Web Essentials",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sillevl/course-web-essentials.git"
+  },
+  "author": "Sille Van Landschoot <info@sillevl.be>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sillevl/course-web-essentials/issues"
+  },
+  "homepage": "https://github.com/sillevl/course-web-essentials#readme",
+  "devDependencies": {
+    "vuepress": "^1.5.4"
+  },
+  "dependencies": {
+    "vuepress-plugin-container": "^2.1.2",
+    "vuepress-plugin-public-files": "^1.0.0-alpha.0",
+    "vuepress-plugin-zooming": "^1.1.7"
+  }
+}
