@@ -20,6 +20,7 @@ layout: courseIntroduction
       1) Text
       2) Colors
       3) Box model
+      4) Variables
    3) Layouts
       1) Div and span elements
       2) global attributes
