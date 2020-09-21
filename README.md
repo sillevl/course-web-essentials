@@ -1,3 +1,6 @@
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/70806a1f-5b54-4cc2-af72-cff8a8684a32/deploy-status)](https://app.netlify.com/sites/web-essentials/deploys)
+
 # Course Web Essentials
 
 Course materials for Web Essentials.
