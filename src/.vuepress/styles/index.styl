@@ -1,0 +1,40 @@
+/**
+ * Custom Styles here.
+ *
+ * ref：https://v1.vuepress.vuejs.org/config/#index-styl
+ */
+
+.home .hero img
+  max-width 450px!important
+
+.quote
+  margin 1rem 0
+  padding .1rem 1.5rem
+  border-radius 0.4rem
+  background-color #f0f4f8
+  font-family: 'Times New Roman', Times, serif
+  font-size: 2em
+  color transparentify($textColor, 0.4)
+  text-align center
+  & p::before
+    content: open-quote
+  & p::after
+    content: close-quote
+  .title
+    font-weight bold
+
+  
+
+  // p
+  //   background-color: blue
+
+  .custom-block
+    &.right
+      color transparentify($textColor, 0.4)
+      font-size 0.9rem
+      text-align right
+    &.right p::before
+      content: ''
+    &.right p::after
+      content: ''
+      
