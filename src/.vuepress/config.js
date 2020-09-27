@@ -97,7 +97,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/chapters/03-how_the_web_works/urls.md',
-          '/chapters/03-how_the_web_works/http.md',
+          '/chapters/03-how_the_web_works/http/http.md',
           '/chapters/03-how_the_web_works/mqtt.md',
           '/chapters/03-how_the_web_works/dns.md',
           '/chapters/03-how_the_web_works/json.md',
