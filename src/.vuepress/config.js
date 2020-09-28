@@ -44,11 +44,14 @@ module.exports = {
   serviceWorker: true,
   themeConfig: {
     nav: [
+      { text: 'Toledo', link: 'https://p.cygnus.cc.kuleuven.be/webapps/tol-web-rs-bb-bb_bb60/goto_lu.do?batchUid=B-VIVN-B5N146-2021&entityId=urn%3Amace%3Akuleuven.be%3Akulassoc%3Akuleuven.be' },
+      { text: 'Blackboard Collaborate', link: 'https://p.cygnus.cc.kuleuven.be/webapps/blackboard/content/launchLink.jsp?course_id=_974914_1&tool_id=_5163_1&tool_type=TOOL&mode=cpview&mode=reset' },
+      { text: 'ECTS', link: 'https://p.cygnus.cc.kuleuven.be/webapps/tol-ECTS-bb_bb60/public/display?button_id=338029f4-47f6-4f27-b476-6b642a1b0fb3' }
     ],
     sidebar: [
       {
-        title: 'Course Introduction',   // required
-        path: '/chapters/00-course_introduction/',      // optional, which should be a absolute path.
+        title: 'Introduction',   // required
+        path: '/',      // optional, which should be a absolute path.
         collapsable: true, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
@@ -56,16 +59,16 @@ module.exports = {
         ]
       },
       {
-        title: 'Introduction',   // required
+        title: 'How The Web Works',   // required
         // path: '/chapters/01-introduction/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/chapters/01-introduction/history.md',
-          '/chapters/01-introduction/tcp_ip_stack.md',
-          '/chapters/01-introduction/client_server_model.md',
-          '/chapters/01-introduction/web_protocols.md',
-          '/chapters/01-introduction/internet_of_things.md',
+          '/chapters/01-how_the_web_works/history.md',
+          '/chapters/01-how_the_web_works/tcp_ip_stack.md',
+          '/chapters/01-how_the_web_works/client_server_model.md',
+          '/chapters/01-how_the_web_works/web_protocols.md',
+          '/chapters/01-how_the_web_works/internet_of_things.md',
         ]
       },
       {
@@ -96,12 +99,12 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/chapters/03-how_the_web_works/urls.md',
-          '/chapters/03-how_the_web_works/http/http.md',
-          '/chapters/03-how_the_web_works/mqtt.md',
-          '/chapters/03-how_the_web_works/dns.md',
-          '/chapters/03-how_the_web_works/json.md',
-          '/chapters/03-how_the_web_works/netlify.md',
+          '/chapters/03-protocols_and_technologies/urls.md',
+          '/chapters/03-protocols_and_technologies/http/http.md',
+          '/chapters/03-protocols_and_technologies/mqtt.md',
+          '/chapters/03-protocols_and_technologies/dns.md',
+          '/chapters/03-protocols_and_technologies/json.md',
+          '/chapters/03-protocols_and_technologies/netlify.md',
         ]
       }
     ],
