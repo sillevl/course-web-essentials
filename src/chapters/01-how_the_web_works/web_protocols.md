@@ -2,33 +2,28 @@
 
 ## HTTP Protocol
 
-* Protocol for Client-Server applications
-* Protocol = system of rules that allow two or more entities of a communications system to transmit information
-* How to request and respond is standardized in the HTTP protocol coordinated by the IETF - Internet Engineering Task Force
-* HTTP stands for HyperText Transfer Protocol
+A Protocol is a **system of rules** that allow two or more entities of a communications system to transmit information.
+
+HTTP stands for HyperText Transfer Protocol. HTTP is protocol that enables _Client-Server_ applications. It defines how `requests` and `responds` should look and is standardized in the HTTP protocol coordinated by the IETF - Internet Engineering Task Force.
 
 ![HTTP request and response](./img/http-request-response.png)
 
-* Client requests and server reponses
-* Plain text protocol, thus readable for humans
-* Default port is 80
-* Stateless protocol
-  * No state \(information or status\) is retained between requests
-  * State can be retained with ‘HTTP cookies’ or ‘sessions’
+In the protocol it is defined how **clients** can send _requests_ and how **servers** should _respond_. The protocol consists out of plain text and is readable for humans. This makes debugging and understanding the process easy.
+
+HTTP is build on top of the TCP/IP stack. By default, port `80` is reserved for HTTP. This is the standard port that is used when no port is provided. Any other port could be used as well, but must always be supplied when sending out requests using a browser or other software.
+
+The HTTP protocol is a **stateless** protocol. This means that no information is shared between different requests or responses. Each request-response sequence is isolated. This enables HTTP servers to process requests and responses very efficiently and easy.
+
+If some state must be retained, for example a user that logs in, _HTTP cookies_ can be used to create the concept of sessions.
 
 ### Client request
 
-* The request message consists of the following:
-  * A request line
+The request message consists of the following:
 
-      \*for example GET /images/logo.png HTTP/1.1, which requests a resource called /images/logo.png from the server
-
-  * One or more Request header fields
-    * such as Accept-Language: en, …
-  * An empty line
-  * An optional message body
-
-Note: the host header is mandatory, all others are optional
+* A request line: for example `GET /images/logo.png HTTP/1.1`, which requests a resource called `/images/logo.png` from the server
+* One or more Request header fields (such as `Accept-Language: en`, …)
+* An empty line to indicate the end of the header
+* An optional message body
 
 ```http
 GET / HTTP/1.1
@@ -39,16 +34,19 @@ Host: www.vives.be
 User-Agent: HTTPie/0.9.2
 ```
 
+::: warning
+The `Host` header is mandatory, all others are optional.
+:::
+
 ### Server response
 
-* The response message consists of the following:
-  * A Status-Line
-    * which include the status code and reason message
-    * e.g., HTTP/1.1 200 OK, which indicates that the client's request succeeded
-  * Response header fields
-    * such as Content-Type: text/html, …
-  * An empty line
-  * An optional message body
+The response message consists of the following:
+
+* A Status-Line which include the `status code` and `reason` message. For example `HTTP/1.1 200 OK` indicates that the client's request succeeded.
+* Response header fields
+  * such as `Content-Type: text/html`, …
+* An empty line to indicate the end of the header
+* An optional message body
 
 ```http
 HTTP/1.1 200 OK
