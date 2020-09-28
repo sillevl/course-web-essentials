@@ -62,7 +62,7 @@ At CERN, Tim Berners-Lee tackled the problem of accessing information. He create
 
 You can still find the very first webpage that was created at that time at [http://info.cern.ch/](http://info.cern.ch/).
 
-#### HyperText Markup Language - HTML
+### HyperText Markup Language - HTML
 
 HyperText Markup Language - HTML was a way to add context and meaning to otherwise meaningless pieces of text. Some text may function as a title, other text is a paragraph in a set of other paragraphs and so on.
 
@@ -114,7 +114,7 @@ Some examples of web 2.0 websites:
 * blogs
 * wiki's
 * video sharing
-* web applications 
+* web applications
 
 ![Evolution of the web](./img/web2.png)
 
@@ -123,4 +123,3 @@ Some examples of web 2.0 websites:
 The next \(r\)evolution in the internet is called the Internet of Things or IoT. The IoT tries to connect the world to the internet. Everyday devices and things will have access to data on the internet. This will enable to make these things smarter by exchanging information with each other.
 
 All these smart devices generate a massive amount of data. A new challenge that has raised is the management of this data and extracting valuable information. This is called big-data.
-

@@ -10,7 +10,7 @@ In the client/server model we have the servers that are always available. They o
 
 ![Client / Server model](./img/client-server.png)
 
-### Client / browser
+## Client / browser
 
 * **Requester** of a resource
 * **Temporary** available
@@ -18,7 +18,7 @@ In the client/server model we have the servers that are always available. They o
 * Cannot respond
 * Processes responses and displays them to the user
 
-### Server
+## Server
 
 * **Provider** of a resource
 * **Permanently** available
@@ -41,7 +41,6 @@ The server always responds to the request of the client
 
 This is all easy and fun, but there is much more that comes in to play in a modern web context.
 
-![](./img/web-magic.png)
+![Magic?](./img/web-magic.png)
 
 Lets discus all these topics in this course.
-

@@ -3,7 +3,7 @@
 ## HTTP Protocol
 
 * Protocol for Client-Server applications
-* Protocol = system of rules that allow two or more entities of a communications system to transmit information 
+* Protocol = system of rules that allow two or more entities of a communications system to transmit information
 * How to request and respond is standardized in the HTTP protocol coordinated by the IETF - Internet Engineering Task Force
 * HTTP stands for HyperText Transfer Protocol
 
@@ -80,7 +80,7 @@ X-Powered-By: PHP/5.5.16
 3. Visit a website, eg: [www.vives.be](https://github.com/sillevl/course-webtechnology/tree/d04b8a1294c587f801b814d02c5ae938c1354659/introduction/www.vives.be)
 4. Click on the initial request to view the details
 
-![](./img/chrome-http-request.png)
+![Chrome HTTP request](./img/chrome-http-request.png)
 
 ## Getting documents over HTTP with clients and servers
 
@@ -96,27 +96,27 @@ X-Powered-By: PHP/5.5.16
 
 The user types the URL in the browser \(client\)
 
-![](./img/http-request-response-step1.png)
+![HTTP request response step 1](./img/http-request-response-step1.png)
 
 The Browser translates the URL to a HTTP request
 
-![](./img/http-request-response-step2.png)
+![HTTP request response step 2](./img/http-request-response-step2.png)
 
 The browser sends the HTTP request to the server
 
-![](./img/http-request-response-step3.png)
+![HTTP request response step 3](./img/http-request-response-step3.png)
 
 The server generates a HTTP response containing the requested file
 
-![](./img/http-request-response-step4.png)
+![HTTP request response step 4](./img/http-request-response-step4.png)
 
 The server sends the HTTP response back to the client
 
-![](./img/http-request-response-step5.png)
+![HTTP request response step 5](./img/http-request-response-step5.png)
 
 The client processes the response and generates an output for the user
 
-![](./img/http-request-response-step6.png)
+![HTTP request response step 6](./img/http-request-response-step6.png)
 
 <YoutubeVideo video-id="keo0dglCj7I" />
 

@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "build": "vuepress build src",
+    "lint-markdown": "markdownlint **/*.md",
+    "lint": "npm run lint-markdown"
   },
   "repository": {
     "type": "git",
@@ -22,8 +24,15 @@
     "vuepress": "^1.5.4"
   },
   "dependencies": {
+    "husky": "^4.3.0",
+    "markdownlint-cli": "^0.23.2",
     "vuepress-plugin-container": "^2.1.2",
     "vuepress-plugin-public-files": "^1.0.0-alpha.0",
     "vuepress-plugin-zooming": "^1.1.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-markdown"
+    }
   }
 }

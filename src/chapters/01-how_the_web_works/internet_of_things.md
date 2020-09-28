@@ -47,4 +47,3 @@ Many technologies enable the IoT conept. This is a mix of existing technologies 
 ### Smart watch
 
 ![GPS trackers](./img/fitbit.jpg)
-

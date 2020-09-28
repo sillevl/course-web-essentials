@@ -5,7 +5,7 @@ Uniform Resource Locators or short URLs are standardized names for internet reso
 * Telling where they are located
 * How to interact with them
 
-![](./img/url.png)
+![URL parts](./img/url.png)
 
 In the example above 3 distinct parts can be recognized:
 
@@ -13,11 +13,11 @@ In the example above 3 distinct parts can be recognized:
 * **Host**: is the server location, telling where the resource is hosted, in this case the host or server is called `www.example.com`
 * **Resource path**: it tells what local resource on the server is being requested. In this case we are interested in the `/books/downloads.html` document.
 
-### URL scheme for HTTP
+## URL scheme for HTTP
 
 Urls can exist out of more parts. This is demonstrated by the URL syntax for the http scheme:
 
-![](./img/url-http-scheme.png)
+![URL Scheme](./img/url-http-scheme.png)
 
 * **Host**: the server to request the resource from
 * **Port**: on what TCP port to connect to on the host \(server\). This defaults to port `80` if omitted
@@ -36,4 +36,4 @@ Relative URLs are a shorthand for specifying a resource within a resource URL’
 
 Relative URLs are relative to the document in which it is found
 
-![](./img/relative-url.png)
+![Relative URL](./img/relative-url.png)
