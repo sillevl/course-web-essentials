@@ -52,8 +52,8 @@ module.exports = {
       {
         title: 'Introduction',   // required
         path: '/',      // optional, which should be a absolute path.
-        collapsable: true, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 0,    // optional, defaults to 1
         children: [
           ''
         ]
@@ -61,8 +61,8 @@ module.exports = {
       {
         title: 'How The Web Works',   // required
         // path: '/chapters/01-introduction/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        collapsable: true, // optional, defaults to true
+        sidebarDepth: 0,    // optional, defaults to 1
         children: [
           '/chapters/01-how_the_web_works/history.md',
           '/chapters/01-how_the_web_works/tcp_ip_stack.md',
@@ -73,8 +73,8 @@ module.exports = {
       },
       {
         title: 'Building Webpages',
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        collapsable: true, // optional, defaults to true
+        sidebarDepth: 0,    // optional, defaults to 1
         children: [
           {
             title: 'HyperText Markup Language',
@@ -97,7 +97,7 @@ module.exports = {
       {
         title: 'How the Web Works',
         collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        sidebarDepth: 0,    // optional, defaults to 1
         children: [
           '/chapters/03-protocols_and_technologies/urls.md',
           '/chapters/03-protocols_and_technologies/http/http.md',
