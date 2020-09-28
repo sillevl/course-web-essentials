@@ -85,25 +85,57 @@ With the `tracert` command you can test and take a look at the different routers
 
 > The Transmission Control Protocol \(TCP\) provides reliable, ordered, and error-checked delivery of data between applications running on hosts communicating over an IP network Source: wikipedia
 
-* TCP is almost always used with the IP – protocol
-  * Is commonly referred to as TCP/IP
-  * Combination of an IP address with an TCP port
+### TCP Handshake
 
-      \*Eg: 192.168.1.1:80
-* Applications that do not need reliable delivery of data can use UDP instead \(User Datagram Protocol\)
-* Introduces the concepts of ‘ports’
-  * Each side of a TCP connection has an associated 16-bit port number \(0-65535\)
-  * Provide several clients with several services simultaneously
+To enable a reliable connection, a 7 way _handshake_ is used when creating a connection using TCP.
 
-Ports:
+* Connect handshake: A 3 way handwhake to establisch a reliable connection.
+* Disconnect handshake: A 4 way handshake to close the connection reliably.
 
-* 20: FTP data transfer
-* 21: FTP control \(command\)
-* 22: Secure Shell \(SSH\)—used for secure logins, file transfers         \(scp, sftp\) and port forwarding
-* 23: Telnet
-* 25: SMTP, used for email
-* 80: HTTP
-* 443: Hypertext Transfer Protocol over TLS/SSL \(HTTPS\)
+#### Creating a network connection
+
+![TCP connection handshake](./img/tcp-connect-handshake.png)
+
+1. The client sends a TCP-header with `SYN = 1`, a sequence number (to know the order of packets), source port and a destination port to the server.
+2. If there is a server listening on the destination address and the given port, it will respond with `SYN = 1`, `ACK = 1` and an aknowledge number x + 1 to confirm the first TCP packet.
+3. The client responds with a `SYN = 0`, `ACK = 1` and an aknowledge number x + 1 together with the data needed to be send to the server.
+
+After correctly following the 3 steps, the connection gets `ESTABLISHED`.
+
+#### Closing a network connection
+
+At any moment, the client or server can request to close the connection. This is again done using a handshake in order to get a reliable status about the connection.
+
+![TCP disconnect handshake](./img/tcp-disconnect-handshake.png)
+
+1. The initiator sends a packet containing a `FIN` flag to the receiver.
+2. The receiver sends an `ACK` flag back to the initiator.
+3. The receiver then sends a `FIN` flag to the initiator to indicate that it is ready to close the connection.
+4. The connection is then finnaly closed when the initiator sends back an `ACK` flag.
+
+#### TCP ports
+
+TCP also introduces the concept of ports. Port enable the protocol to distinguish between multiple types of packets that are received. This enables to isolate data between multiple applications on the server. A server can as wel host a HTTP server and a Mail server, just by listening to a different port on the same machine.
+
+A port number is just a 16 bit number. This means that up to 65535 different applications can be hosted on a single machine, all isolated from each other.
+
+The first 1024 port numbers are regulated to have a fixed type of service being hosted on them. Ports 1024 - 65535 can be used for anything you want.
+
+Some of the most known ports are:
+
+* `20`: FTP data transfer
+* `21`: FTP control \(command\)
+* `22`: Secure Shell \(SSH\)—used for secure logins, file transfers         \(scp, sftp\) and port forwarding
+* `23`: Telnet
+* `25`: SMTP, used for email
+* `80`: HTTP
+* `443`: Hypertext Transfer Protocol over TLS/SSL \(HTTPS\)
 * …
 
 More ports: [https://en.wikipedia.org/wiki/List\_of\_TCP\_and\_UDP\_port\_numbers](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)
+
+## TCP/IP
+
+The TCP protocol is almost always used with the IP protocol. Is commonly referred to the TCP/IP stack. A combination of an IP address with an TCP port looks like this `192.168.1.1:80`.
+
+Applications that do not need reliable delivery of data can use UDP instead \(User Datagram Protocol\)
