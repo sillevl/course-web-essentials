@@ -38,9 +38,3 @@ The server always responds to the request of the client
 * `Sorry, I cannot find the code for your request`
 
 ![Request and Response](./img/request-response.png)
-
-This is all easy and fun, but there is much more that comes in to play in a modern web context.
-
-![Magic?](./img/web-magic.png)
-
-Lets discus all these topics in this course.
