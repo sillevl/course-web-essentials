@@ -75,11 +75,20 @@ module.exports = {
       {
         title: 'Building Webpages',
         collapsable: true, // optional, defaults to true
-        sidebarDepth: 0,    // optional, defaults to 1
+        sidebarDepth: 2,    // optional, defaults to 1
         children: [
           {
             title: 'HyperText Markup Language',
-            children: ''
+            collapsable: true, // optional, defaults to true
+            sidebarDepth: 0,    // optional, defaults to 1
+            children: [
+              '/chapters/02-building_webpages/html/introduction/',
+              '/chapters/02-building_webpages/html/text/',
+              '/chapters/02-building_webpages/html/lists/',
+              '/chapters/02-building_webpages/html/links/',
+              '/chapters/02-building_webpages/html/images/',
+              '/chapters/02-building_webpages/html/tables/',
+            ]
           },
           {
             title: 'Cascading StyleSheets',
