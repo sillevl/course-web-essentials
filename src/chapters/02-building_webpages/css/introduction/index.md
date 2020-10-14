@@ -71,7 +71,8 @@ There are multiple ways to add CSS code alongside the HTML code.
     </head>
     <body>
         <h1>Potatoes</h1>
-        <p>There are dozens of different potato varieties. They are usually                 described as early, second early and maincrop potatoes.</p>
+        <p>There are dozens of different potato varieties. They are usually
+           described as early, second early and maincrop potatoes.</p>
     </body>
 </html>
 ```
@@ -116,7 +117,8 @@ h1 {
     </head>
     <body>
         <h1>Potatoes</h1>
-        <p>There are dozens of different potato varieties. They are usually             described as early, second early and maincrop potatoes.</p>
+        <p>There are dozens of different potato varieties. They are usually
+           described as early, second early and maincrop potatoes.</p>
     </body>
 </html>
 ```

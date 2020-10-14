@@ -1,4 +1,4 @@
-# CSS Text
+# Text
 
 ## Introduction
 

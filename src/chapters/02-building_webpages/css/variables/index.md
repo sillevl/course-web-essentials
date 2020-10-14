@@ -1,1 +1,1 @@
-# CSS Variables
+# Variables

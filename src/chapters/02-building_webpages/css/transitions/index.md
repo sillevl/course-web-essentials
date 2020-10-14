@@ -1,3 +1,3 @@
-# CSS Transitions
+# Transitions
 
 TODO
