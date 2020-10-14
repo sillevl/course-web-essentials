@@ -92,7 +92,15 @@ module.exports = {
           },
           {
             title: 'Cascading StyleSheets',
-            children: ''
+            collapsable: true, // optional, defaults to true
+            sidebarDepth: 0,    // optional, defaults to 1
+            children: [
+              '/chapters/02-building_webpages/css/introduction/',
+              '/chapters/02-building_webpages/css/color/',
+              '/chapters/02-building_webpages/css/text/',
+              '/chapters/02-building_webpages/css/variables/',
+              '/chapters/02-building_webpages/css/transitions/',
+            ]
           },
           {
             title: 'Layouts',
