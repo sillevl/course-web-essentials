@@ -100,6 +100,7 @@ module.exports = {
               '/chapters/02-building_webpages/css/text/',
               '/chapters/02-building_webpages/css/boxes/',
               '/chapters/02-building_webpages/css/variables/',
+              '/chapters/02-building_webpages/css/pseudoclasses/',
               '/chapters/02-building_webpages/css/transitions/',
             ]
           },
