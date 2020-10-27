@@ -40,19 +40,19 @@ You can specify the positioning scheme using the `position` property in CSS. You
 
 Every `block-level` element appears on a new line, causing each item to appear lower down the page than the previous one. Even if you specify the width of the box and there is pace for two elements to sit side-by-side, they will not appear next to each other.
 
-![Normal flow](./img/normal-flow.png)
+![Normal flow (browserFrame)](./img/normal-flow.png)
 
 ### Relative positioning
 
 This moves an element from the positioning it would be in the normal flow, shifting it to the top, right, bottom or left of where it would have been placed. This does not affect the positioning of surrounding elements. they stay in the position they would be in normal flow.
 
-![Relative positioning](./img/relative-positioning.png)
+![Relative positioning (browserFrame)](./img/relative-positioning.png)
 
 ### Absolute positioning
 
 This positions the element in relation to its containing element. It is taken out of normal flow, meaning that it does not affect the position of any surrounding elements. Absolute positioned elements move as users scroll up and down.
 
-![Absolute positioning](./img/absolute-positioning.png)
+![Absolute positioning (browserFrame)](./img/absolute-positioning.png)
 
 To indicate where a box should be positioned, you may need to use box offset properties to tell the browser how far from the `top` or `bottom` and `left` or `right` it should be placed.
 
@@ -60,7 +60,7 @@ To indicate where a box should be positioned, you may need to use box offset pro
 
 This is a form of absolute positioning that positions the element in relation to the browser window, as apposed to the containing element. Elements with fixed positions do not affect the position of surrounding elements and they do not move when the users scrolls up or down the page
 
-![Fixed positioning](./img/fixed-positioning.png)
+![Fixed positioning (browserFrame)](./img/fixed-positioning.png)
 
 The heading has been placed in the center of the page and 25% from the top of the screen.
 
@@ -70,7 +70,7 @@ When you move any element from normal flow, boxes can overlap. The `z-index` pro
 
 Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box. The floated element becomes the a block-level element around which other elements can flow.
 
-![Floating elements](./img/floating-elements.png)
+![Floating elements (browserFrame)](./img/floating-elements.png)
 
 The heading has been floated to the left, allowing paragraphs of text to flow around it.
 
@@ -104,7 +104,7 @@ p {
 
 In this example, paragraphs are restricted to 450px. These elements are in normal flow and start on a new line even if they do not take up the full width of the browser window.
 
-![Normal flow](./img/normal-flow-example.png)
+![Normal flow (browserFrame)](./img/normal-flow-example.png)
 
 ## Relative positioning `position:relative`
 
@@ -127,7 +127,7 @@ p.example {
 }
 ```
 
-![Relative positioning](./img/relative-positioning-example.png)
+![Relative positioning (browserFrame)](./img/relative-positioning-example.png)
 
 ## Absolute positioning `position:absolute`
 
@@ -154,7 +154,7 @@ p {
 }
 ```
 
-![Absolute positioning](./img/absolute-positioning-example.png)
+![Absolute positioning (browserFrame)](./img/absolute-positioning-example.png)
 
 ## Fixed positioning `position:fixed`
 
@@ -191,7 +191,7 @@ p.example {
 
 When you use relative, fixed or absolute positioning, boxes can overlap. If boxes overlap, the elements appear later in the HTML code sit on top of those that are earlier in the page. You can control which element should sit on top with the `z-index` property, which value is a number. The higher the `z-index` number, the closer that element is to the front.
 
-![Overlapping elements](./img/overlapping-elements.png)
+![Overlapping elements (browserFrame)](./img/overlapping-elements.png)
 
 ```css
 h1 {
@@ -211,7 +211,7 @@ p {
 }
 ```
 
-![Overlapping elements 2](./img/overlapping-elements-2.png)
+![Overlapping elements 2 (browserFrame)](./img/overlapping-elements-2.png)
 
 <!-- markdownlint-disable no-duplicate-header -->
 ## Floating elements
@@ -247,13 +247,13 @@ blockquote {
 }
 ```
 
-![Floating elements](./img/floating-elements-example.png)
+![Floating elements (browserFrame)](./img/floating-elements-example.png)
 
 ### Using float to place elements side-by-side
 
 A lot of layouts place boxed next to each other, the `float` property is commonly used to achieve this. When elements are floated, the height of the boxes can affect where the following element sit.
 
-![Floating side-by-side](./img/floating-side-by-side.png)
+![Floating side-by-side (browserFrame)](./img/floating-side-by-side.png)
 
 The fourth paragraph does not go across to the left hand edge of the page as one might expect. Rather it sits right under the third paragraph. This is because the second paragraph is in its way to go any further to the left. Setting the height of the paragraphs to be the same height as the tallest one would solve this issue, but is rarely suited to the real world designs.
 
@@ -337,7 +337,7 @@ div {
 }
 ```
 
-![Parents of floated elements problem](./img/parents-of-floated-elements-problem.png)
+![Parents of floated elements problem (browserFrame)](./img/parents-of-floated-elements-problem.png)
 
 ### Parents of floated elements: solution
 
@@ -354,7 +354,7 @@ div {
 }
 ```
 
-![Parents of floated elements solution](./img/parents-of-floated-elements-solution.png)
+![Parents of floated elements solution (browserFrame)](./img/parents-of-floated-elements-solution.png)
 
 ## Creating multi-column layouts with floats
 
@@ -391,7 +391,7 @@ Many websites use multiple columns in their design. This is achieved by using a 
 }
 ```
 
-![2 columns](./img/2-columns.png)
+![2 columns (browserFrame)](./img/2-columns.png)
 
 Similar, a three column layout could be created by floating three `<div>` elements next to each other.
 
@@ -418,7 +418,7 @@ Similar, a three column layout could be created by floating three `<div>` elemen
 }
 ```
 
-![3 columns](./img/3-columns.png)
+![3 columns (browserFrame)](./img/3-columns.png)
 
 ## Multiple style sheets: `@import`
 
@@ -466,7 +466,7 @@ h3 {
 </html>
 ```
 
-![@import](./img/at-import.png)
+![@import (browserFrame)](./img/at-import.png)
 
 ### `link`
 
@@ -487,7 +487,7 @@ You can include multiple style sheets providing each style sheet in an `<link>` 
 </html>
 ```
 
-![Link example](./img/at-import.png)
+![Link example (browserFrame)](./img/at-import.png)
 
 ## Summary
 

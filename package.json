@@ -26,6 +26,7 @@
   "dependencies": {
     "husky": "^4.3.0",
     "markdownlint-cli": "^0.23.2",
+    "vuepress-plugin-browserframe": "file:src/.vuepress/vuepress-plugin-browserframe",
     "vuepress-plugin-container": "^2.1.2",
     "vuepress-plugin-presentation-mode": "^0.1.1",
     "vuepress-plugin-public-files": "^1.0.0-alpha.0",

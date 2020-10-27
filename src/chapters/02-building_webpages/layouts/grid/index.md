@@ -40,7 +40,7 @@ To see something that looks more grid-like, we will need to add some columns to 
 
 Add the 2nd declaration to your CSS rule, then reload the page, and you should see that the items have rearranged themselves one into each cell of the created grid.
 
-![Grid layout](./img/grid-layout.png)
+![Grid layout (browserFrame)](./img/grid-layout.png)
 
 ### Flexible grids with the fr unit
 
@@ -66,7 +66,7 @@ You should now see that you have flexible tracks. The `fr` unit distributes spac
 
 The first track now gets `2fr` of the available space and the other two tracks get `1fr`, making the first track larger. You can mix `fr` units and fixed length tracks — in such a case the space needed for the fixed tracks is taken away before the space is distributed to the other tracks.
 
-![fr units](./img/fr-unit.png)
+![fr units (browserFrame)](./img/fr-unit.png)
 
 {% hint style="info" %}
 The fr unit distributes available space, not all space. Therefore if one of your tracks has something large inside it there will be less free space to share out.
@@ -86,7 +86,7 @@ To create gaps between tracks we use the properties `grid-column-gap` for gaps b
 
 These gaps can be any length unit or a percentage, but not an `fr` unit.
 
-![Grid gaps](./img/gaps.png)
+![Grid gaps (browserFrame)](./img/gaps.png)
 
 ### Repeating track listings
 
@@ -117,7 +117,7 @@ By default, tracks created in the implicit grid are auto sized, which in general
 }
 ```
 
-![Implicit grid](./img/implicit-grid.png)
+![Implicit grid (browserFrame)](./img/implicit-grid.png)
 
 ### The `minmax()` function
 
@@ -151,7 +151,7 @@ Try this in your file now, using the below CSS:
 }
 ```
 
-![As many columns as will fit](./img/column-fit.png)
+![As many columns as will fit (browserFrame)](./img/column-fit.png)
 
 This works because grid is creating as many 200 pixel columns as will fit into the container, then sharing whatever space is leftover between all of the columns — the maximum is 1fr which, as we already know, distributes space evenly between tracks.
 
@@ -199,7 +199,7 @@ footer {
 }
 ```
 
-![Line based placement](./img/line-based-placement.png)
+![Line based placement (browserFrame)](./img/line-based-placement.png)
 
 ## Positioning with grid-template-areas
 
@@ -237,7 +237,7 @@ footer {
 
 Reload the page and you will see that your items have been placed just as before without us needing to use any line numbers!
 
-![Template areas](./img/template-areas.png)
+![Template areas (browserFrame)](./img/template-areas.png)
 
 The rules for `grid-template-areas` are as follows:
 
@@ -277,7 +277,7 @@ footer {
 }
 ```
 
-![Grid framework](./img/grid-framework.png)
+![Grid framework (browserFrame)](./img/grid-framework.png)
 
 If you use the [Firefox Grid Inspector](https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts) to overlay the grid lines on your design, you can see how our 12 column grid works.
 
@@ -285,7 +285,7 @@ If you use the [Firefox Grid Inspector](https://developer.mozilla.org/en-US/docs
 
 You can also use a Grid Inspector in [Chorme](https://developers.google.com/web/updates/2017/08/devtools-release-notes#css-grid-highlighting).
 
-<YoutubeVideo video-id="AqwPrR7hklE>
+<YoutubeVideo video-id="AqwPrR7hklE" />
 
 ## Summary
 

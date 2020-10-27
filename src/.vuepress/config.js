@@ -38,6 +38,7 @@ module.exports = {
       after: () => '</details>\n'
     }],
     ['vuepress-plugin-presentation-mode'],
+    ['vuepress-plugin-browserframe']
   ],
   markdown: {
     lineNumbers: true,

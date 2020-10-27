@@ -57,4 +57,4 @@ span {
 }
 ```
 
-![Normal flow](./img/normal-flow.png)
+![Normal flow (browserFrame)](./img/normal-flow.png)

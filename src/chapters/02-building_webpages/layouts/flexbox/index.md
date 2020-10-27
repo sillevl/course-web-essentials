@@ -18,7 +18,7 @@ In this article we are going to get you to work through a series of exercises to
 
 You'll see that we have a `<header>` element with a top level heading inside it, and a `<section>` element containing three `<article>`s. We are going to use these to create a fairly standard three column layout.
 
-![Flexbox example](./img/flexbox-example1.png)
+![Flexbox example (browserFrame)](./img/flexbox-example1.png)
 
 ## Specifying what elements to lay out as flexible boxes
 
@@ -32,7 +32,7 @@ section {
 
 The result of this should be something like so:
 
-![Flexbox example](./img/flexbox-example2.png)
+![Flexbox example (browserFrame)](./img/flexbox-example2.png)
 
 So, this single declaration gives us everything we need — incredible, right? We have our multiple column layout with equal sized columns, and the columns are all the same height. This is because the default values given to flex items (the children of the flex container) are set up to solve common problems such as this. More on those later.
 
@@ -135,7 +135,7 @@ article:nth-of-type(3) {
 
 This basically states "Each flex item will first be given 200px of the available space. After that, the rest of the available space will be shared out according to the proportion units." Try refreshing and you'll see a difference in how the space is shared out.
 
-![Flexbox example](./img/flexbox-example1.png)
+![Flexbox example (browserFrame)](./img/flexbox-example1.png)
 
 The real value of flexbox can be seen in its flexibility/responsiveness — if you resize the browser window, or add another `<article>` element, the layout continues to work just fine.
 
@@ -153,7 +153,7 @@ We'd advise against using the longhand flex properties unless you really have to
 
 You can also use flexbox features to align flex items along the main or cross axis. Let's explore this by looking at a new example — [flex-align0.html](https://github.com/mdn/learning-area/blob/master/css/css-layout/flexbox/flex-align0.html) ([see it live](http://mdn.github.io/learning-area/css/css-layout/flexbox/flex-align0.html) also) — which we are going to turn into a neat, flexible button/toolbar. At the moment you'll see a horizontal menu bar, with some buttons jammed into the top left hand corner.
 
-![Flexbox example](./img/flexbox-example5.png)
+![Flexbox example (browserFrame)](./img/flexbox-example5.png)
 
 First, take a local copy of this example.
 
@@ -199,7 +199,7 @@ We'd like to encourage you to play with these values to see how they work before
 
 It is possible to create some pretty complex layouts with flexbox. It is perfectly ok to set a flex item to also be a flex container, so that its children are also laid out like flexible boxes. Have a look at [complex-flexbox.html](https://github.com/mdn/learning-area/blob/master/css/css-layout/flexbox/complex-flexbox.html) ([see it live](http://mdn.github.io/learning-area/css/css-layout/flexbox/complex-flexbox.html) also).
 
-![Flexbox example](./img/flexbox-example7.png)
+![Flexbox example (browserFrame)](./img/flexbox-example7.png)
 
 The HTML for this is fairly simple. We've got a `<section>` element containing three `<article>`s. The third `<article>` contains three `<div>`s. :
 
