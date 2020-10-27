@@ -3,7 +3,10 @@ module.exports = {
   description: 'Web Essentials course for the VIVES elektronics and ICT',
   dest: 'dist',
   plugins: [
-    ['vuepress-plugin-zooming'],
+    ['vuepress-plugin-zooming', {
+      selector: '.theme-default-content :not(a) img',
+      delay: 1500
+    }],
     [
       // includes all files in `sourceDir`
       // ignore dotfiles and markdown
