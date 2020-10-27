@@ -1,12 +1,20 @@
 {
   "name": "vuepress-plugin-browserframe",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Add browserframes to image",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["vue", "vuepress", "plugin", "browserframe", "browsermockup"],
+  "author": "Sille Van Landschoot <info@sillevl.be>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sillevl/vuepress-plugin-browserframe/issues"
+  },
+  "homepage": "https://github.com/sillevl/vuepress-plugin-browserframe#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sillevl/vuepress-plugin-browserframe.git"
+  }
 }

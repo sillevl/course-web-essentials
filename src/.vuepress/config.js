@@ -116,7 +116,9 @@ module.exports = {
             sidebarDepth: 0,    // optional, defaults to 1
             children: [
               '/chapters/02-building_webpages/layouts/introduction/',
+              '/chapters/02-building_webpages/layouts/html-layout/',
               '/chapters/02-building_webpages/layouts/normal-flow/',
+              '/chapters/02-building_webpages/layouts/positioning/',
               '/chapters/02-building_webpages/layouts/flexbox/',
               '/chapters/02-building_webpages/layouts/grid/',
               '/chapters/02-building_webpages/layouts/media-queries/',

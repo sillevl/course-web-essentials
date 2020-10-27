@@ -1,497 +1,447 @@
-# Webpage Layouts
+# Webpage Layout
 
-With CSS we can control where each element sits on a page and it allows us to create attractive page layouts. This will involve learning about how designing for a screen can be different to designing for other mediums (such as print).
-
-We will:
-
-* Explore different ways to position elements using normal flow, relative position, absolute position and floats
-* Discover how various devices have different screen sizes and resolutions, and how this affects the design process
-* Learn the difference between fixed with and liquid layouts, and how they are created
-
-## Key concepts
-
-### Building blocks
-
-CSS treats each HTML element as if it is in its own box. This box will either be a `block-level` box or an `inline` box.
-
-![Block level elements](./img/block-level-elements.png)
-
-![Inline elements](./img/inline-elements.png)
-
-### Container elements
-
-If one `block-level` element sits inside another `block-level` element, then the outer box is know as the **containing** or **parent** element.
-
-![Element containers](./img/containing-elements.png)
-
-The orange lines in this diagram represent `<div>` elements. The header is in one `<div>` element, the main content of the page is in another, and the footer is in a third. The `<body>` element is the containing element of these three `<div>` elements. The second `<div>` element is the containing element for two paragraphs of Latin text and images.
-
-## Controlling the position
-
-CSS has the following **positioning schemes** that allow you to control the layout of a page:
+CSS page layout techniques allow us to take elements contained in a web page and control where they are positioned relative to their default position in normal layout flow, the other elements around them, their parent container, or the main viewport/window.  The page layout techniques we'll be covering in more detail in this module are
 
 * Normal flow
-* Relative positioning
-* Absolute positioning
+* The `display` property
+* Flexbox
+* Grid
+* Floats
+* Positioning
+* Table layout
+* Multiple-column layout
 
-You can specify the positioning scheme using the `position` property in CSS. You can also float elements using the `float` property.
+Each technique has its uses, advantages, and disadvantages, and no technique is designed to be used in isolation. By understanding what each method is designed for you will be in a good place to understand which is the best layout tool for each task.
 
-### Normal flow
+## Normal flow
 
-Every `block-level` element appears on a new line, causing each item to appear lower down the page than the previous one. Even if you specify the width of the box and there is pace for two elements to sit side-by-side, they will not appear next to each other.
+Normal flow is how the browser lays out HTML pages by default when you do nothing to control page layout. Let's look at a quick HTML example:
 
-![Normal flow (browserFrame)](./img/normal-flow.png)
+```html
+<p>I love my cat.</p>
+
+<ul>
+  <li>Buy cat food</li>
+  <li>Exercise</li>
+  <li>Cheer up friend</li>
+</ul>
+
+<p>The end!</p>
+```
+
+![Normal flow](./img/normal-flow.png)
+
+Note here how the HTML is displayed in the exact order in which it appears in the source code, with elements stacked up on top of one another — the first paragraph, followed by the unordered list, followed by the second paragraph.
+
+The elements that appear one below the other are described as *block* elements, in contrast to *inline* elements, which appear one beside the other, like the individual words in a paragraph.
+
+When you use CSS to create a layout, what you are doing is moving the elements away from this normal flow, however for many of the elements on your page this normal flow will create exactly the layout you need. This is why starting with a well-structured HTML document is so important, as you can then work with the way things are laid out by default rather than fighting against it.
+
+The methods that can change how elements are laid out in CSS are as follows:
+
+* **The `display` property** — Standard values such as `block`, `inline` or `inline-block` can change how elements behave in normal flow. We then have entire layout methods that are switched on via a value of `display`, for example CSS Grid and Flexbox.
+* **Floats** — Applying a `float` value such as `left` can cause block level elements to wrap alongside one side of an element, like the way images sometimes have text floating around them in magazine layouts.
+* **The `position` property** — Allows you to precisely control the placement of boxes inside other boxes. `static` positioning is the default in normal flow, but you can cause elements to be laid out differently using other values, for example always fixed to the top left of the browser viewport.
+* **Table layout** — features designed for styling the parts of an HTML table can be used on non-table elements using `display: table` and associated properties..
+* **Multi-column layout** — The Multi-column layout properties can cause the content of a block to layout in columns, as you might see in a newspaper.
+
+## The display property
+
+The main methods of achieving page layout in CSS are all values of the `display` property. This property allows us to change the default way something displays. Everything in normal flow has a value of `display`, used as the default way that elements they are set on behave. For example, the fact that paragraphs in English display one below the other is due to the fact that they are styled with `display: block`. If you create a link around some text inside a paragraph, that link remains inline with the rest of the text, and doesn’t break onto a new line. This is because the `<a>` element is `display: inline` by default.
+
+You can change this default display behaviour. For example, the `<li>` element is display: block by default, meaning that list items display one below the other in our English document. If we change the display value to `inline` they now display next to each other, as words would do in a sentence. The fact that you can change the value of `display` for any element means that you can pick HTML elements for their semantic meaning, without being concerned about how they will look. The way they look is something that you can change.
+
+In addition to being able to change the default presentation by turning an item from `block` to `inline` and vice versa, there are some bigger layout methods that start out as a value of `display`. However when using these you will generally need to invoke additional properties. The two values most important for our purposes when discussing layout are `display: flex` and `display: grid`.
+
+## Flexbox
+
+Flexbox is the short name for the Flexible Box Layout Module, designed to make it easy for us to lay things out in one dimension — either as a row or as a column. To use flexbox, you apply `display: flex` to the parent element of the elements you want to lay out; all its direct children then become flex items. We can see this in a simple example.
+
+The HTML markup below gives us a containing element, with a class of `wrapper`, inside which are three `<div>` elements. By default these would display as block elements, below one another, in our English language document.
+
+However, if we add `display: flex` to the parent, the three items now arrange themselves into columns. This is due to them becoming flex items and using some initial values that flexbox gives them. They are displayed as a row, because the initial value of `flex-direction` is `row`. They all appear to stretch to the height of the tallest item, because the initial value of the `align-items` property is `stretch`. This means that the items stretch to the height of the flex container, which in this case is defined by the tallest item. The items all line up at the start of the container, leaving any extra space at the end of the row.
+
+```css
+.wrapper {
+  display: flex;
+}
+```
+
+```html
+<div class="wrapper">
+  <div class="box1">One</div>
+  <div class="box2">Two</div>
+  <div class="box3">Three</div>
+</div>
+```
+
+![Flexbox](./img/flexbox.png)
+
+In addition to the above properties that can be applied to the flex container, there are properties that can be applied to the flex items. These properties, among other things, can change the way that the items flex, enabling them to expand and contract to fit into the available space.
+
+As a simple example of this, we can add the `flex` property to all of our child items, with a value of `1`. This will cause all of the items to grow and fill the container, rather than leaving space at the end. If there is more space then the items will become wider; if there is less space they will become narrower. In addition, if you add another element to the markup the items will all become smaller to make space for it — they will adjust size to take up the same amount of space, whatever that is.
+
+```css
+.wrapper {
+    display: flex;
+}
+
+.wrapper > div {
+    flex: 1;
+}
+```
+
+```html
+<div class="wrapper">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+</div>
+```
+
+![Flexbox flex value](./img/flexbox2.png)
+
+## Grid Layout
+
+While flexbox is designed for one-dimensional layout, Grid Layout is designed for two dimensions — lining things up in rows and columns.
+
+Once again, you can switch on Grid Layout with a specific value of display — `display: grid`. The below example uses similar markup to the flex example, with a container and some child elements. In addition to using `display: grid`, we are also defining some row and column tracks on the parent using the `grid-template-rows` and `grid-template-columns` properties respectively. We've defined three columns each of `1fr` and two rows of `100px`. I don’t need to put any rules on the child elements; they are automatically placed into the cells our grid has created.
+
+```css
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-gap: 10px;
+}
+```
+
+```html
+<div class="wrapper">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+    <div class="box4">Four</div>
+    <div class="box5">Five</div>
+    <div class="box6">Six</div>
+</div>
+```
+
+![Grid](./img/grid.png)
+
+Once you have a grid, you can explicitly place your items on it, rather than relying on the auto-placement behavior seen above. In the second example below we have defined the same grid, but this time with three child items. We've set the start and end line of each item using the `grid-column` and `grid-row` properties. This causes the items to span multiple tracks.
+
+```css
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-gap: 10px;
+}
+
+.box1 {
+    grid-column: 2 / 4;
+    grid-row: 1;
+}
+
+.box2 {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.box3 {
+    grid-row: 2;
+    grid-column: 3;
+}
+```
+
+```html
+<div class="wrapper">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+</div>
+```
+
+![Complex grid layout](./img/grid-complex.png)
+
+The rest of this guide covers other layout methods, which are less important for the main layout structures of your page but can still help you achieve specific tasks. By understanding the nature of each layout task, you will soon find that when you look at a particular component of your design the type of layout best suited to it will often be clear.
+
+## Floats
+
+Floating an element changes the behavior of that element and the block level elements that follow it in normal flow. The element is moved to the left or right and removed from normal flow, and the surrounding content floats around the floated item.
+
+The `float` property has four possible values:
+
+* `left` — Floats the element to the left.
+* `right` — Floats the element to the right.
+* `none` — Specifies no floating at all. This is the default value.
+* `inherit` — Specifies that the value of the `float` property should be inherited from the element's parent element.
+
+In the example below we float a `<div>` left, and give it a `margin` on the right to push the text away from the element. This gives us the effect of text wrapped around that box, and is most of what you need to know about floats as used in modern web design.
+
+```html
+<h1>Simple float example</h1>
+
+<div class="box">Float</div>
+
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+```
+
+```css
+.box {
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-right: 30px;
+}
+```
+
+![Floats](./img/floats.png)
+
+## Positioning techniques
+
+Positioning allows you to move an element from where it would be placed when in normal flow to another location. Positioning isn’t a method for creating your main page layouts, it is more about managing and fine-tuning the position of specific items on the page.
+
+There are however useful techniques for certain layout patterns that rely on the `position` property. Understanding positioning also helps in understanding normal flow, and what it is to move an item out of normal flow.
+
+There are five types of positioning you should know about:
+
+* **Static positioning** is the default that every element gets — it just means "put the element into its normal position in the document layout flow — nothing special to see here".
+* **Relative positioning** allows you to modify an element's position on the page, moving it relative to its position in normal flow — including making it overlap other elements on the page.
+* **Absolute positioning** moves an element completely out of the page's normal layout flow, like it is sitting on its own separate layer. From there, you can fix it in a position relative to the edges of the page's `<html>` element (or its nearest positioned ancestor element). This is useful for creating complex layout effects such as tabbed boxes where different content panels sit on top of one another and are shown and hidden as desired, or information panels that sit off screen by default, but can be made to slide on screen using a control button.
+* **Fixed positioning** is very similar to absolute positioning, except that it fixes an element relative to the browser viewport, not another element. This is useful for creating effects such as a persistent navigation menu that always stays in the same place on the screen as the rest of the content scrolls.
+* *Sticky positioning* is a newer positioning method which makes an element act like `position: static` until it hits a defined offset from the viewport, at which point it acts like `position: fixed`.
+
+### Simple positioning example
+
+To provide familiarity with these page layout techniques, we'll show you a couple of quick examples. Our examples will all feature the same HTML, which is as follows:
+
+```html
+<h1>Positioning</h1>
+
+<p>I am a basic block level element.</p>
+<p class="positioned">I am a basic block level element.</p>
+<p>I am a basic block level element.</p>
+```
+
+This HTML will be styled by default using the following CSS:
+
+```css
+body {
+  width: 500px;
+  margin: 0 auto;
+}
+
+p {
+    background-color: rgb(207,232,220);
+    border: 2px solid rgb(79,185,227);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+```
+
+The rendered output is as follows:
+
+![Positioning](./img/positioning.png)
 
 ### Relative positioning
 
-This moves an element from the positioning it would be in the normal flow, shifting it to the top, right, bottom or left of where it would have been placed. This does not affect the positioning of surrounding elements. they stay in the position they would be in normal flow.
+Relative positioning allows you to offset an item from the position in normal flow it would have by default. This means you could achieve a task such as moving an icon down a bit so it lines up with a text label. To do this, we could add the following rule to add relative positioning:
 
-![Relative positioning (browserFrame)](./img/relative-positioning.png)
+```css
+.positioned {
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
+```
+
+Here we give our middle paragraph a `position` value of `relative` — this doesn't do anything on its own, so we also add `top` and `left` properties. These serve to move the affected element down and to the right — this might seem like the opposite of what you were expecting, but you need to think of it as the element being pushed on its left and top sides, which result in it moving right and down.
+
+Adding this code will give the following result:
+
+```css
+.positioned {
+  position: relative;
+  background: rgba(255,84,104,.3);
+  border: 2px solid rgb(255,84,104);
+  top: 30px;
+  left: 30px;
+}
+```
+
+![Relative positioning](./img/relative-positioning.png)
 
 ### Absolute positioning
 
-This positions the element in relation to its containing element. It is taken out of normal flow, meaning that it does not affect the position of any surrounding elements. Absolute positioned elements move as users scroll up and down.
+Absolute positioning is used to completely remove an element from normal flow, and place it using offsets from the edges of a containing block.
 
-![Absolute positioning (browserFrame)](./img/absolute-positioning.png)
+Going back to our original non-positioned example, we could add the following CSS rule to implement absolute positioning:
 
-To indicate where a box should be positioned, you may need to use box offset properties to tell the browser how far from the `top` or `bottom` and `left` or `right` it should be placed.
+```css
+.positioned {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+```
+
+Here we give our middle paragraph a `position` value of `absolute`, and the same `top` and `left` properties as before. Adding this code, however, will give the following result:
+
+```css
+.positioned {
+    position: absolute;
+    background: rgba(255,84,104,.3);
+    border: 2px solid rgb(255,84,104);
+    top: 30px;
+    left: 30px;
+}
+```
+
+![Absolute positioning](./img/absolute-positioning.png)
+
+This is very different! The positioned element has now been completely separated from the rest of the page layout and sits over the top of it. The other two paragraphs now sit together as if their positioned sibling doesn't exist. The `top` and `left` properties have a different effect on absolutely positioned elements than they do on relatively positioned elements. In this case the offsets have been calculated from the top and left of the page. It is possible to change the parent element that becomes this container and we will take a look at that in the lesson on positioning.
 
 ### Fixed positioning
 
-This is a form of absolute positioning that positions the element in relation to the browser window, as apposed to the containing element. Elements with fixed positions do not affect the position of surrounding elements and they do not move when the users scrolls up or down the page
+Fixed positioning removes our element from document flow in the same way as absolute positioning. However, instead of the offsets being applied from the container, they are applied from the viewport. As the item remains fixed in relation to the viewport we can create effects such as a menu which remains fixed as the page scrolls beneath it.
 
-![Fixed positioning (browserFrame)](./img/fixed-positioning.png)
-
-The heading has been placed in the center of the page and 25% from the top of the screen.
-
-When you move any element from normal flow, boxes can overlap. The `z-index` property allows you to control which box appears on top.
-
-### Floating elements
-
-Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box. The floated element becomes the a block-level element around which other elements can flow.
-
-![Floating elements (browserFrame)](./img/floating-elements.png)
-
-The heading has been floated to the left, allowing paragraphs of text to flow around it.
-
-## Normal flow `position:static`
-
-In normal flow, each block-level element sits on top of the next one.  It is the default way in which browsers treat HTML elements. The CSS property for this behavior is `position: static;`
+For this example our HTML is three paragraphs of text, in order that we can cause the page to scroll, and a box to which we will give `position: fixed`.
 
 ```html
-<body>
-  <h1>The Evolution of the Bicycle</h1>
-  <p>In 1817 Baron von Drais invented a walking
-    machine that would help him get around the
-    royal gardens faster...</p>
-</body>
+<h1>Fixed positioning</h1>
+
+<div class="positioned">Fixed</div>
+
+<p>Paragraph 1.</p>
+<p>Paragraph 2.</p>
+<p>Paragraph 3.</p>
 ```
 
 ```css
-body {
-  width: 750px;
-  font-family: Arial, Verdana, sans-serif;
-  color: #665544;
-}
-h1 {
-  background-color: #efefef;
-  padding: 10px;
-}
-p {
-  width: 450px;
+.positioned {
+    position: fixed;
+    top: 30px;
+    left: 30px;
 }
 ```
 
-In this example, paragraphs are restricted to 450px. These elements are in normal flow and start on a new line even if they do not take up the full width of the browser window.
+![Fixed positioning](./img/fixed-positioning.png)
 
-![Normal flow (browserFrame)](./img/normal-flow-example.png)
+## Sticky positioning
 
-## Relative positioning `position:relative`
-
-**Relative** positioning moves an element in relation to where it would have been in normal flow. You can use the offset properties (`top` or `bottom` and `left` or `right`) to indicate how far to move the element.
-  
-```html
-<body>
-  <h1>The Evolution of the Bicycle</h1>
-  <p>In 1817 Baron von Drais invented a
-    walking machine that would help him get
-    around the royal gardens faster...</p>
-</body>
-```
+Sticky positioning is the final positioning method that we have at our disposal. It mixes the default static positioning with fixed positioning. When an item has `position: sticky` it will scroll in normal flow until it hits offsets from the viewport that we have defined. At that point it becomes "stuck" as if it had `position: fixed` applied.
 
 ```css
-p.example {
-  position: relative;
-  top: 10px;
-  left: 100px;
+.positioned {
+  position: sticky;
+  top: 30px;
+  left: 30px;
 }
 ```
 
-![Relative positioning (browserFrame)](./img/relative-positioning-example.png)
+![Sticky position](./img/sticky-position.png)
 
-## Absolute positioning `position:absolute`
+## Table layout
 
-When the `position` property is given an value of `absolute`, the box is taken out of normal flow an no longer affects the position of other elements on the page. The box offset properties (`top` or `bottom` and `left` or `right`) specify where the element should appear in relation to its containing element.
+HTML tables are fine for displaying tabular data, but many years ago — before even basic CSS was supported reliably across browsers — web developers used to also use tables for entire web page layouts — putting their headers, footers, different columns, etc. in various table rows and columns. This worked at the time, but it has many problems — table layouts are inflexible, very heavy on markup, difficult to debug, and semantically wrong (e.g., screen reader users have problems navigating table layouts).
+
+The way that a table looks on a webpage when you use table markup is due to a set of CSS properties that define table layout. These properties can be used to lay out elements that are not tables, a use which is sometimes described as "using CSS tables".
+
+The example below shows one such use; using CSS tables for layout should be considered a legacy method at this point, for those situations where you have very old browsers without support for Flexbox or Grid.
+
+Let's look at an example. First, some simple markup that creates an HTML form. Each input element has a label, and we've also included a caption inside a paragraph. Each label/input pair is wrapped in a `<div>`, for layout purposes.
 
 ```html
-<body>
-  <h1>The Evolution of the Bicycle</h1>
-  <p>In 1817 Baron von Drais invented a walking
-    machine that would help him get around the
-    royal gardens faster...</p>
-</body>
-```
-
-```css
-h1 {
-  position: absolute;
-  top: 0px;
-  left: 500px;
-  width: 250px;
-}
-p {
-  width: 450px;
-}
-```
-
-![Absolute positioning (browserFrame)](./img/absolute-positioning-example.png)
-
-## Fixed positioning `position:fixed`
-
-Fixed position is a type of absolute positioning that requires the `position` property to have a value of `fixed`. It positions the element in relation to the *browser window*. Therefore, when a user scrolls down the page, it stays in the exact same place
-To control where the fixed position box appears in relation to the browser window, the box offset properties (`top` or `bottom` and `left` or `right`) are used.
-
-```html
-<body>
-  <h1>The Evolution of the Bicycle</h1>
-  <p class="example">In 1817 Baron von Drais
-    invented a walking machine that would help him
-    get around the royal gardens faster...</p>
-</body>
-```
-
-```css
-h1 {
-  position: fixed;
-  top: 0px;
-  left: 50px;
-  padding: 10px;
-  margin: 0px;
-  width: 100%;
-  background-color: #efefef;
-}
-p.example {
-  margin-top: 100px;
-}
-```
-
-![Fixed positioning](./img/fixed-position-example.png)
-
-## Overlapping elements
-
-When you use relative, fixed or absolute positioning, boxes can overlap. If boxes overlap, the elements appear later in the HTML code sit on top of those that are earlier in the page. You can control which element should sit on top with the `z-index` property, which value is a number. The higher the `z-index` number, the closer that element is to the front.
-
-![Overlapping elements (browserFrame)](./img/overlapping-elements.png)
-
-```css
-h1 {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  margin: 0px;
-  padding: 10px;
-  width: 100%;
-  background-color: #efefef;
-  z-index: 10;
-}
-p {
-  position: relative;
-  top: 70px;
-  left: 70px;
-}
-```
-
-![Overlapping elements 2 (browserFrame)](./img/overlapping-elements-2.png)
-
-<!-- markdownlint-disable no-duplicate-header -->
-## Floating elements
-
-The `float` property allows you to take an element in normal flow and place it as far to the `left` of `right` of the containing element as possible.
-
-Anything else that sits inside the containing element will flow around the element that is floated.
-
-When using the `float` property, you should use the width property to indicate how wide the floated element should be. If you do not, results can be inconsistent but the box is likely to take up the full width of the containing element.
-
-```html
-<h1>The Evolution of the Bicycle</h1>
-<blockquote>"Life is like riding a bicycle.
-  To keep your balance you must keep moving." -
-  Albert Einstein</blockquote>
-<p>In 1817 Baron von Drais invented a walking
-  machine that would help him get around the royal
-  gardens faster: two same-size in-line wheels, the
-  front one steerable, mounted in a frame ... </p>
-```
-
-```css
-blockquote {
-  float: right;
-  width: 275px;
-  font-size: 130%;
-  font-style: italic;
-  font-family: Georgia, Times, serif;
-  margin: 0px 0px 10px 10px;
-  padding: 10px;
-  border-top: 1px solid #665544;
-  border-bottom: 1px solid #665544;
-}
-```
-
-![Floating elements (browserFrame)](./img/floating-elements-example.png)
-
-### Using float to place elements side-by-side
-
-A lot of layouts place boxed next to each other, the `float` property is commonly used to achieve this. When elements are floated, the height of the boxes can affect where the following element sit.
-
-![Floating side-by-side (browserFrame)](./img/floating-side-by-side.png)
-
-The fourth paragraph does not go across to the left hand edge of the page as one might expect. Rather it sits right under the third paragraph. This is because the second paragraph is in its way to go any further to the left. Setting the height of the paragraphs to be the same height as the tallest one would solve this issue, but is rarely suited to the real world designs.
-
-```html
-<body>
-  <h1>The Evolution of the Bicycle</h1>
-  <p>In 1817 Baron von Drais invented a walking
-    machine that would help him get around...</p>
-</body>
-```
-
-```css
-body {
-  width: 750px;
-  font-family: Arial, Verdana, sans-serif;
-  color: #665544;
-}
-p {
-  width: 230px;
-  float: left;
-  margin: 5px;
-  padding: 5px;
-  background-color: #efefef;
-}
-```
-
-### Clearing floats: `clear`
-
-The `clear` property allows you to say that no element within the same containing element should touch the left or right-hand sides of a box. It can take the following values:
-
-* **left**: The left-hand side of the box should not touch any other elements appearing in the same containing element
-* **right**: The right-hand side of the box will not touch elements appearing in the same containing element
-* **both**: Neither the left of right-hand sides of the box will touch elements appearing in the same containing element
-* **none**: Elements can touch either side
-
-```html
-<p class="clear">In 1865, the velocipede (meaning
-  "fast foot") attached pedals to the front wheel,
-  but its wooden structure made it extremely
-  uncomfortable.</p>
-```
-
-```css
-body {
-  width: 750px;
-  font-family: Arial, Verdana, sans-serif;
-  color: #665544;
-}
-p {
-  width: 230px;
-  float: left;
-  margin: 5px;
-  padding: 5px;
-  background-color: #efefef;
-}
-.clear {
-  clear: left;
-}
-```
-
-### Parents of floated elements: problem
-
-If a containing element only contains floated elements, some browsers will treat it as if it is zero pixels tall.
-
-As you can see in the example, the one pixel border assigned to the containing element has collapsed, so the box looks like a two pixel line.
-
-```html
-<body>
-  <h1>The Evolution of the Bicycle</h1>
+<form>
+  <p>First of all, tell us your name and age.</p>
   <div>
-    <p>In 1817 Baron von Drais invented a walking
-      machine that would help him get around the
-      royal gardens faster...</p>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname">
   </div>
-</body>
+  <div>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname">
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <input type="text" id="age">
+  </div>
+</form>
 ```
 
+Now, the CSS for our example. Most of the CSS is fairly ordinary, except for the uses of the `display` property. The `<form>`, `<div>`s, and `<label>`s and `<input>`s have been told to display like a table, table rows, and table cells respectively — basically, they'll act like HTML table markup, causing the labels and inputs to line up nicely by default. All we then have to do is add a bit of sizing, margin, etc. to make everything look a bit nicer and we're done.
+
+You'll notice that the caption paragraph has been given `display: table-caption;` — which makes it act like a table `<caption>` — and `caption-side: bottom;` to tell the caption to sit on the bottom of the table for styling purposes, even though the markup is before the `<input>` elements in the source. This allows for a nice bit of flexibility.
+
 ```css
-div {
-  border: 1px solid #665544;
+html {
+  font-family: sans-serif;
+}
+
+form {
+  display: table;
+  margin: 0 auto;
+}
+
+form div {
+  display: table-row;
+}
+
+form label, form input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+form label {
+  width: 200px;
+  padding-right: 5%;
+  text-align: right;
+}
+
+form input {
+  width: 300px;
+}
+
+form p {
+  display: table-caption;
+  caption-side: bottom;
+  width: 300px;
+  color: #999;
+  font-style: italic;
 }
 ```
 
-![Parents of floated elements problem (browserFrame)](./img/parents-of-floated-elements-problem.png)
+This gives us the following result:
 
-### Parents of floated elements: solution
+![Table layout](./img/table-layout.png)
 
-A pure CSS-based solution, without the need to add an extra HTML element, is to add two CSS rules tot the containing element.
+## Multi-column layout
 
-* The `overflow` property is given a value `auto`
-* The `width` property is set to `100%`
+The multi-column layout module gives us a way to lay out content in columns, similar to how text flows in a newspaper. While reading up and down columns is less useful in a web context as you don’t want to force users to scroll up and down, arranging content into columns can be a useful technique.
 
-```css
-div {
-  border: 1px solid #665544;
-  overflow: auto;
-  width: 100%;
-}
-```
+To turn a block into a multicol container we use either the `column-count` property, which tells the browser how many columns we would like to have, or the `column-width` property, which tells the browser to fill the container with as many columns of at least that width.
 
-![Parents of floated elements solution (browserFrame)](./img/parents-of-floated-elements-solution.png)
-
-## Creating multi-column layouts with floats
-
-Many websites use multiple columns in their design. This is achieved by using a `<div>` or an equivalent element to represent each column. The following CSS properties are used to position the columns next to each other:
-
-* **width**: This sets the width of the column
-* **float**: This positions the columns next to each other
-* **margin**: Creates a gap between the columns
+In the below example we start with a block of HTML inside a containing `<div>` element with a class of `container`.
 
 ```html
-<h1>The Evolution of the Bicycle</h1>
-<div class="column1of2">
-    <h3>The First Bicycle</h3>
-    <p>In 1817 Baron von Drais invented a walking
-        machine that would help him get around the
-        royal gardens faster: two same-size ...</p>
-    </div>
-    <div class="column2of2">
-    <h3>Bicycle Timeline</h3>
-    ...
+<div class="container">
+    <h1>Multi-column layout</h1>
+
+    <p>Paragraph 1.</p>
+    <p>Paragraph 2.</p>
+
 </div>
 ```
 
-```css
-.column1of2 {
-   float: left;
-   width: 620px;
-   margin: 10px;
-}
-.column2of2 {
-   float: left;
-   width: 300px;
-   margin: 10px;
-}
-```
-
-![2 columns (browserFrame)](./img/2-columns.png)
-
-Similar, a three column layout could be created by floating three `<div>` elements next to each other.
-
-```html
-<h1>The Evolution of the Bicycle</h1>
-<div class="column1of3">
-   <h3>The First Bicycle</h3> ...
-</div>
-<div class="column2of3">
-   <h3>Further Innovations</h3> ...
-</div>
-<div class="column3of3">
-   <h3>Bicycle Timeline</h3> ...
-</div>
-```
+We are using a `column-width` of 200 pixels on that container, causing the browser to create as many 200-pixel columns as will fit in the container and then share the remaining space between the created columns.
 
 ```css
-.column1of3,
-.column2of3,
-.column3of3 {
-   width: 300px;
-   float: left;
-   margin: 10px;
+.container {
+    column-width: 200px;
 }
 ```
 
-![3 columns (browserFrame)](./img/3-columns.png)
-
-## Multiple style sheets: `@import`
-
-Some web page authors split their CSS style rules into separate style sheets. (for better maintainability). Some take an even more modular approach to style sheets, creating separate style sheets to control typography, layout, forms, tables, or even subsections of a site.
-
-There are two ways to add multiple style sheets to a page.
-
-* `Link` each style sheet in HTML
-* Use `@import` to import other style sheets
-
-### `@import`
-
-```css
-@import url("tables.css");
-@import url("typography.css");
-body {
-  color: #666666;
-  background-color: #f8f8f8;
-  text-align: center;
-}
-#page {
-  width: 600px;
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid #d6d6d6;
-  padding: 20px;
-}
-h3 {
-  color: #547ca0;
-}
-```
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Multiple Style Sheets - Import</title>
-    <link rel="stylesheet"
-      type="text/css" href="css/styles.css" />
-  </head>
-  <body>
-    <!-- HTML page content here -->
-  </body>
-</html>
-```
-
-![@import (browserFrame)](./img/at-import.png)
-
-### `link`
-
-You can include multiple style sheets providing each style sheet in an `<link>` element inside the `<head>` element. No need for `@import` rules inside the style sheets. If two rules apply to the same element then the rules that appear later in a document will take precedence over previous rules.
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Multiple Style Sheets - Link</title>
-    <link rel="stylesheet" type="text/css" href="css/site.css" />
-    <link rel="stylesheet" type="text/css" href="css/tables.css" />
-    <link rel="stylesheet" type="text/css" href="css/typography.css" />
-  </head>
-  <body>
-    <!-- HTML page content here -->
-  </body>
-</html>
-```
-
-![Link example (browserFrame)](./img/at-import.png)
-
-## Summary
-
-* `<div>` elements are often used as containing elements to group together sections of a page
-* Browsers display pages in `normal flow` unless you specify `relative`, `absolute` or `fixed` position
-* The `float` property moves content to the left or right of the page and can be used to create multi-column layouts.
-* You can include multiple CSS files in one page
+![Multi column layout](./img/column-layout.png)
