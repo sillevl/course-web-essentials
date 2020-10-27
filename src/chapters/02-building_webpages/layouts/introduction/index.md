@@ -487,7 +487,7 @@ You can include multiple style sheets providing each style sheet in an `<link>` 
 </html>
 ```
 
-![@import](./img/at-import.png)
+![Link example](./img/at-import.png)
 
 ## Summary
 

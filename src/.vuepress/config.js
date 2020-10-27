@@ -88,6 +88,7 @@ module.exports = {
               '/chapters/02-building_webpages/html/links/',
               '/chapters/02-building_webpages/html/images/',
               '/chapters/02-building_webpages/html/tables/',
+              '/chapters/02-building_webpages/html/extras/',
             ]
           },
           {
@@ -101,11 +102,21 @@ module.exports = {
               '/chapters/02-building_webpages/css/boxes/',
               '/chapters/02-building_webpages/css/variables/',
               '/chapters/02-building_webpages/css/transitions/',
+              '/chapters/02-building_webpages/css/extras/',
             ]
           },
           {
             title: 'Layouts',
-            children: ''
+            collapsable: true, // optional, defaults to true
+            sidebarDepth: 0,    // optional, defaults to 1
+            children: [
+              '/chapters/02-building_webpages/layouts/introduction/',
+              '/chapters/02-building_webpages/layouts/normal-flow/',
+              '/chapters/02-building_webpages/layouts/flexbox/',
+              '/chapters/02-building_webpages/layouts/grid/',
+              '/chapters/02-building_webpages/layouts/media-queries/',
+              '/chapters/02-building_webpages/layouts/extras/',
+            ]
           },
           {
             title: 'JavaScript',
